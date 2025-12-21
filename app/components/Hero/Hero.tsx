@@ -6,7 +6,8 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { create } from "domain";
+import BottomTextHero from "./BottomTextHero";
+
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const HeroTextRef = useRef<HTMLHeadingElement>(null);
@@ -21,7 +22,6 @@ const Hero = () => {
       end: "bottom top",
       pin: true,
       pinSpacing: false,
-      markers: true,
       scrub: true,
       animation: gsap.to(HeroTextRef.current, {
         opacity: 0,
@@ -30,11 +30,33 @@ const Hero = () => {
         ease: "power3.out",
       }),
     });
+    ScrollTrigger.create({
+      trigger: BottomRef.current,
+      start: "top 50%",
+      end: "bottom top",
+      scrub: true,
+      animation: gsap.fromTo(
+        ImagesRef.current,
+        {
+          scale: 0.9,
+          opacity: 0,
+          duration: 3,
+          ease: "power3.out",
+        },
+        {
+          opacity:1,
+          scale: 1.6,
+          duration: 3,
+          ease: "power3.out",
+        }
+      ),
+    });
   });
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <TopHero TopRef={TopRef} HeroTextRef={HeroTextRef} />
       <BottomHero BottomRef={BottomRef} ImagesRef={ImagesRef} />
+      <BottomTextHero/>
     </div>
   );
 };
