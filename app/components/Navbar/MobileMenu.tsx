@@ -6,7 +6,7 @@ const MobileMenu = ({
   menuItems,
   setIsMenuOpen,
 }: {
-  menuRef: React.RefObject<HTMLUListElement>;
+  menuRef: React.RefObject<HTMLUListElement | null>;
   menuItems: { title: string; href: string }[];
   setIsMenuOpen: (open: boolean) => void;
 }) => {
