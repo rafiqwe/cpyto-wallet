@@ -20,7 +20,7 @@ export const ExploreCoinCard = ({
         shadow-[0_20px_60px_rgba(0,0,0,0.6)]
         transition-all duration-500
         hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.8)]
-        ${idx % 2 === 0 ? "rotate-[1deg]" : "-rotate-[1deg]"}
+        ${idx % 2 === 0 ? "rotate-1" : "-rotate-1"}
       `}
     >
       {/* Glow */}
