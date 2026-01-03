@@ -3,11 +3,12 @@ import FallingStar from "./FallingStar";
 import FooterStars from "./FooterStars";
 import TopFooterText from "./TopFooterText";
 import FooterBottomImage from "@/public/images/footer bg.png";
+import ActualFooter from "./ActualFooter";
 
 const Footer = () => {
   return (
     <div className="px-2 relative w-full h-full  ">
-      <div className="overflow-hidden relative w-full h-full pb-20 bg-black rounded-4xl">
+      <div className="overflow-hidden relative w-full h-full bg-black rounded-4xl">
         <div className="w-full ">
           <div className="w-full mx-auto overflow-hidden flex relative items-center justify-center">
             <FooterStars />
@@ -17,7 +18,7 @@ const Footer = () => {
           </div>
         </div>
         <TopFooterText />
-        <div className="w-full h-full absolute bottom-0 ">
+        <div className="w-full mx-auto h-200 md:h-full absolute md:-bottom-30 -bottom-10 ">
           <Image
             src={FooterBottomImage}
             alt="footer bottom image"
@@ -25,6 +26,7 @@ const Footer = () => {
             fill
           />
         </div>
+        <ActualFooter />
       </div>
     </div>
   );
