@@ -1,7 +1,7 @@
 const ExploreBottomText = () => {
   return (
     <div className=" relative w-full flex items-center justify-center h-full px-10">
-      <h3 className="text-5xl z-10 text-center w-1/2 font-bold text-white">
+      <h3 className="md:text-5xl text-3xl z-10 text-center md:w-1/2 w-full font-bold text-white">
         Explore, create, and trade seamlessly{" "}
         <span className="text-gray-300 font-sans">
           in the Bitcoin ecosystem.
