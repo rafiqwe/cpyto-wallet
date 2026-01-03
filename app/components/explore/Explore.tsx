@@ -15,7 +15,6 @@ const Expolore = () => {
       trigger: exploreRef.current,
       start: "top 140%",
       end: "bottom 80%",
-      markers: true,
       scrub: true,
       animation: gsap.fromTo(
         exploreRef.current,
