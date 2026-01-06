@@ -1,8 +1,11 @@
+"use client";
 import { Instagram, Linkedin, LucideTwitter, Twitter } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ActualFooter = () => {
+  const [isSubscribed, setIsSubscribed] = React.useState(false);
+  const [email, setEmail] = React.useState("");
   const navItems = [
     {
       name: "Home",
@@ -38,6 +41,20 @@ const ActualFooter = () => {
       href: "https://instagram.com",
     },
   ];
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    localStorage.setItem("SubscribedEmail", email as string);
+    setEmail("");
+    setIsSubscribed(true);
+    console.log(formData.get("email"));
+  };
+
+  useEffect(() => {
+    const isSubscribed = localStorage.getItem("SubscribedEmail");
+    setIsSubscribed(!!isSubscribed);
+  }, []);
   return (
     <footer className=" mt-50 border-t border-slate-600 text-white h-full w-full rounded-none px-10 relative bottom-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 ">
       <div className="flex items-center justify-between flex-col md:flex-row w-full h-full">
@@ -52,7 +69,7 @@ const ActualFooter = () => {
         </div>
         <div className="md:px-7  pb-10">
           <div>
-            <div className="flex items-center justify-between w-[80%] md:w-full mx-auto">
+            <div className="flex items-center justify-between w-full md:w-full mx-auto">
               <h2 className="text-lg font-semibold font-sans">Stay in touch</h2>
               <div className="flex items-center gap-4 text-gray-500">
                 {socialIcons.map((item) => (
@@ -64,21 +81,34 @@ const ActualFooter = () => {
                 ))}
               </div>
             </div>
-            <div className="w-[70%] md:w-full ">
-              <form className="flex gap-10 p-1 bg-black text-white rounded-2xl border border-gray-500 mt-5 ">
-                <input
-                  type="email"
-                  placeholder="name@gmail.com"
-                  className="md:px-5 px-3 md:py-2 outline-none w-48 md:w-full  text-lg font-semibold font-sans "
-                />
-                <button
-                  type="submit"
-                  className=" py-2 bg-white text-black md:px-12 px-6 md:text-lg text-sm font-semibold font-sans rounded-2xl cursor-pointer ml-10 "
+            {!isSubscribed ? (
+              <div className="w-[70%] md:w-full ">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex gap-10 p-1 bg-black text-white rounded-2xl border border-gray-500 mt-5 "
                 >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+                  <input
+                    name="email"
+                    type="email"
+                    value={email}
+                    required
+                    placeholder="name@gmail.com"
+                    className="md:px-5 px-3 md:py-2 outline-none w-48 md:w-full  text-lg font-semibold font-sans "
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className=" py-2 bg-white text-black md:px-12 px-6 md:text-lg text-sm font-semibold font-sans rounded-2xl cursor-pointer ml-10 "
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <p className="text-lg font-bold font-sans w-full">
+                Thank you for subscribing
+              </p>
+            )}
           </div>
         </div>
       </div>
