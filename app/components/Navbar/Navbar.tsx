@@ -98,11 +98,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Content */}
-        <MobileMenu
-          menuRef={containerRef}
-          menuItems={menuItems}
-          setIsMenuOpen={setIsMenuOpen}
-        />
+        <MobileMenu menuItems={menuItems} setIsMenuOpen={setIsMenuOpen} />
       </div>
     </nav>
   );

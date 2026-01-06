@@ -2,21 +2,16 @@ import React from "react";
 import Link from "next/link";
 
 const MobileMenu = ({
-  menuRef,
   menuItems,
   setIsMenuOpen,
 }: {
-  menuRef: React.RefObject<HTMLUListElement | null>;
   menuItems: { title: string; href: string }[];
   setIsMenuOpen: (open: boolean) => void;
 }) => {
   return (
     <div className="px-6 pb-6 md:hidden">
       <div className="h-px w-full mb-6" />
-      <ul
-        ref={menuRef}
-        className="flex items-center w-full flex-col text-white/90 space-y-4"
-      >
+      <ul className="flex items-center w-full flex-col text-white/90 space-y-4">
         {menuItems.map((item) => (
           <li key={item.title} className="mobile-nav-item ">
             <Link
