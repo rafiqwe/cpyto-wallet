@@ -56,7 +56,7 @@ const ActualFooter = () => {
     setIsSubscribed(!!isSubscribed);
   }, []);
   return (
-    <footer className=" mt-50 border-t border-slate-600 text-white h-full w-full rounded-none px-10 relative bottom-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 ">
+    <footer className=" mt-50 border-t border-slate-600 text-white h-full w-full rounded-none px-10 relative bottom-0  bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 ">
       <div className="flex items-center justify-between flex-col md:flex-row w-full h-full">
         <div className="flex-1 md:border-r border-none mb-10 md:mb-0 border-slate-400 ">
           <ul className=" flex flex-col gap-3 py-7">
