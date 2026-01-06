@@ -1,6 +1,7 @@
 import Image from "next/image";
 import icons from "@/public/images/logotemplate_4x@4x.png";
 import Link from "next/link";
+import AppsIcon from "../UI/AppsIcon";
 const BottomTextHero = () => {
   return (
     <div className="relative z-10 max-h-50 -top-20  w-full h-44 min-h-35 ">
@@ -16,9 +17,7 @@ const BottomTextHero = () => {
         </Link>
       </div>
       <div className="flex items-center justify-center flex-col mt-7 font-bold">
-        <div>
-          {/* <Image src={icons} alt="icons" fill className="object-contain" /> */}
-        </div>
+        <AppsIcon bgColor="bg-white" />
         <h3>Also available in browsers</h3>
       </div>
     </div>
