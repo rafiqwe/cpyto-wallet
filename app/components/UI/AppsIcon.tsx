@@ -1,4 +1,3 @@
-import React from "react";
 import chrome from "@/public/images/Google_Chrome.svg.webp";
 import app from "@/public/images/arc.png";
 import firefox from "@/public/images/firefox_icon.png";
