@@ -5,7 +5,7 @@ import protectimage from "@/public/images/protectimage.png";
 import cryptomobile from "@/public/images/cryptomobile.png";
 import minecraft from "@/public/images/minecraft.png";
 
-import { BlogContent } from "./BlogEx";
+import { BlogContent } from "./Blogtype";
 
 export const BlogData: BlogContent[] = [
   {
