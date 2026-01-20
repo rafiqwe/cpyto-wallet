@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BlogRender } from "@/app/components/guide/BlogRender";
 
-import { BlogContent } from "@/app/data/BlogEx";
+import { BlogContent } from "@/app/data/Blogtype";
 
 const page = () => {
   const params = useParams();
@@ -18,10 +18,10 @@ const page = () => {
   }, []);
 
   return (
-    <article className="mb-30 px-14 relative ">
-      <div className="pt-10 absolute top-5 left-3 z-5 cursor-pointer">
+    <article className="mb-30 md:px-14 px-3 relative ">
+      <div className="pt-10 z-31 hidden md:block absolute  top-5 left-3 cursor-pointer ">
         <Link href="/guide">
-          <p className="flex items-center gap-2 bg-gray-200 cursor-pointer rounded-3xl px-6 py-2  ">
+          <p className="flex items-center gap-2 bg-gray-200 cursor-pointer  rounded-3xl px-6 py-2  ">
             <ArrowLeftCircle size={18} />
             Articles
           </p>
@@ -41,7 +41,7 @@ const page = () => {
             {blogData?.title}
           </h1>
           <p className="text-gray-500 text-center pt-10 font-semibold ">
-           Date: {blogData?.data}
+            Date: {blogData?.data}
           </p>
         </div>
         <div className="w-full h-[600px] relative mt-20 mb-13">
@@ -50,7 +50,7 @@ const page = () => {
               src={blogData.image}
               alt="blog image"
               fill
-              className="object-cover rounded-3xl"
+              className="md:object-cover object-contain rounded-3xl"
             />
           )}
         </div>
